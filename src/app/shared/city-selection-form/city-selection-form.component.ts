@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-city-selection-form',
@@ -6,7 +7,19 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./city-selection-form.component.css'],
 })
 export class CitySelectionFormComponent implements OnInit {
-    constructor() {}
+    @Output() public selectedZipCode: EventEmitter<string> = new EventEmitter<string>();
 
-    ngOnInit(): void {}
+    public zipCode: FormControl;
+
+    public ngOnInit(): void {
+        this.zipCode = new FormControl('', { validators: [Validators.required, Validators.pattern(/[0-9]{5}/)] });
+    }
+
+    public addLocation() {
+        if (this.zipCode.valid) {
+            this.selectedZipCode.emit(this.zipCode.value);
+            this.zipCode.reset('');
+            console.log(this.zipCode)
+        }
+    }
 }
