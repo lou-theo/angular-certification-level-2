@@ -1,4 +1,4 @@
-export interface Environment {
+export interface EnvironmentModel {
     production: boolean;
     openweathermapApi: {
         rootUrl: string;

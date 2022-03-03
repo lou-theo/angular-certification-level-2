@@ -19,7 +19,6 @@ export class CitySelectionFormComponent implements OnInit {
         if (this.zipCode.valid) {
             this.selectedZipCode.emit(this.zipCode.value);
             this.zipCode.reset('');
-            console.log(this.zipCode)
         }
     }
 }
