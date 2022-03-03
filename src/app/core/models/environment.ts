@@ -3,5 +3,5 @@ export interface Environment {
     openweathermapApi: {
         rootUrl: string;
         appId: string;
-    }
+    };
 }
