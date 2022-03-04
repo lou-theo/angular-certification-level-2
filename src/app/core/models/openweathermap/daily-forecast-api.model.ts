@@ -1,6 +1,6 @@
-import { WeatherModel } from './weather.model';
+import { WeatherApiModel } from './weather-api.model';
 
-export interface DailyForecastModel {
+export interface DailyForecastApiModel {
     dt: number;
     sunrise: number;
     sunset: number;
@@ -20,7 +20,7 @@ export interface DailyForecastModel {
     };
     pressure: number;
     humidity: number;
-    weather: WeatherModel[];
+    weather: WeatherApiModel[];
     speed: number;
     deg: number;
     gust: number;

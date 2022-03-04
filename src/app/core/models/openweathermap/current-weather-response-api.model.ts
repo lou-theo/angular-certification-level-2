@@ -1,11 +1,11 @@
-import { WeatherModel } from './weather.model';
+import { WeatherApiModel } from './weather-api.model';
 
-export interface CurrentWeatherResponseModel {
+export interface CurrentWeatherResponseApiModel {
     coord: {
         lon: number;
         lat: number;
     };
-    weather: WeatherModel[];
+    weather: WeatherApiModel[];
     base: string;
     main: {
         temp: number;

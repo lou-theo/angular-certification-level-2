@@ -1,6 +1,6 @@
-import { DailyForecastModel } from './daily-forecast.model';
+import { DailyForecastApiModel } from './daily-forecast-api.model';
 
-export interface ForecastWeatherResponseModel {
+export interface ForecastWeatherResponseApiModel {
     city: {
         id: number;
         name: string;
@@ -15,5 +15,5 @@ export interface ForecastWeatherResponseModel {
     cod: string;
     message: number;
     cnt: number;
-    list: DailyForecastModel[];
+    list: DailyForecastApiModel[];
 }
