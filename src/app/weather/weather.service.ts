@@ -12,7 +12,7 @@ export class WeatherService {
     constructor(private http: HttpClient) {}
 
     public getCurrentWeather(zipCode: string): Observable<CurrentWeatherModel> {
-        const options = { params: new HttpParams().set('zip', zipCode + ',us').set('appid', environment.openweathermapApi.appId) };
+        const options = { params: new HttpParams().set('zip', zipCode + ',us') };
         return this.http
             .get<CurrentWeatherResponseApiModel>(
                 new URL('weather', environment.openweathermapApi.rootUrl).toString(),
