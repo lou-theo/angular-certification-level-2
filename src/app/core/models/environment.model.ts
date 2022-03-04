@@ -4,4 +4,5 @@ export interface EnvironmentModel {
         rootUrl: string;
         appId: string;
     };
+    iconsRootUrl: string;
 }
