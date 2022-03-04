@@ -5,9 +5,10 @@ import { AppComponent } from './app.component';
 import { WeatherModule } from './weather/weather.module';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, WeatherModule, SharedModule, AppRoutingModule],
+    imports: [BrowserModule, FormsModule, HttpClientModule, WeatherModule, SharedModule, AppRoutingModule],
     declarations: [AppComponent],
     bootstrap: [AppComponent],
 })
