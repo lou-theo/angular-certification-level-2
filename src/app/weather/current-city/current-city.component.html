@@ -1,15 +1,15 @@
 <div class="well flex">
     <div>
-        <h3>Rancho Cordova (95742)</h3>
-        <h4>Current conditions: Clouds</h4>
+        <h3>{{ city?.name }} ({{ city?.zipCode }})</h3>
+        <h4>Current conditions: {{ weather?.condition }}</h4>
         <h4>Temperatures today:</h4>
-        <p>Current 58 - Max 65 - Min 48</p>
+        <p>Current {{ weather?.temperature }} - Max {{ weather?.temperatureMax }} - Min {{ weather?.temperatureMin }}</p>
         <p>
-            <a href="/forecast/95742">Show 5-day forecast for Rancho Cordova</a>
+            <a [routerLink]="['/forecast', city?.zipCode]">Show 5-day forecast for {{ city?.name }}</a>
         </p>
     </div>
-    <div>
+    <div (click)="close()">
         <span class="close">×</span>
-        <img src="https://www.angulartraining.com/images/weather/sun.png" />
+        <img src="https://www.angulartraining.com/images/weather/sun.png" alt="close" />
     </div>
 </div>

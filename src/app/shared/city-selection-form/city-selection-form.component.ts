@@ -15,7 +15,7 @@ export class CitySelectionFormComponent implements OnInit {
         this.zipCode = new FormControl('', { validators: [Validators.required, Validators.pattern(/[0-9]{5}/)] });
     }
 
-    public addLocation() {
+    public addLocation(): void {
         if (this.zipCode.valid) {
             this.selectedZipCode.emit(this.zipCode.value);
             this.zipCode.reset('');
