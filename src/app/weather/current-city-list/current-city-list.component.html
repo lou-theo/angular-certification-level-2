@@ -3,4 +3,5 @@
     *ngFor="let currentWeather of currentWeathers"
     [city]="currentWeather.city"
     [weather]="currentWeather.weather"
+    (closedCity)="removeCity($event)"
 ></app-current-city>
