@@ -32,6 +32,6 @@ export class CurrentCityListComponent implements OnInit {
 
     public removeCity(city: CityModel): void {
         this.cityService.removeZipCode(city.zipCode);
-        this.currentWeathers = this.currentWeathers.filter((cw) => cw.city.zipCode != city.zipCode);
+        this.currentWeathers = this.currentWeathers.filter((cw) => cw.city.zipCode !== city.zipCode);
     }
 }

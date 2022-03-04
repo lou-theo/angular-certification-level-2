@@ -29,7 +29,7 @@ export class CityService {
     }
 
     public removeZipCode(zipCode: string): void {
-        this.zipCodes = this.zipCodes.filter((z: string) => z != zipCode);
+        this.zipCodes = this.zipCodes.filter((z: string) => z !== zipCode);
         this.saveZipCodes();
     }
 

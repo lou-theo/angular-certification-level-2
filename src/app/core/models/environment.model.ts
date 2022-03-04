@@ -5,4 +5,6 @@ export interface EnvironmentModel {
         appId: string;
     };
     iconsRootUrl: string;
+    numberOfForecastedDays: number;
+    currentWeatherCacheInMinutes: number;
 }
