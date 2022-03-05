@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, Observable, of, tap } from 'rxjs';
-import { CurrentWeatherModel } from "@app/core/models/weather/current-weather.model";
-import { DateHelper } from "@app/core/helpers/date.helper";
-import { environment } from "@environment/environment";
-import { CurrentWeatherResponseApiModel } from "@app/core/models/openweathermap/current-weather-response-api.model";
-import { ForecastWeatherModel } from "@app/core/models/weather/forecast-weather.model";
-import { ForecastWeatherResponseApiModel } from "@app/core/models/openweathermap/forecast-weather-response-api.model";
+import { CurrentWeatherModel } from '@app/core/models/weather/current-weather.model';
+import { DateHelper } from '@app/core/helpers/date.helper';
+import { environment } from '@environment/environment';
+import { CurrentWeatherResponseApiModel } from '@app/core/models/openweathermap/current-weather-response-api.model';
+import { ForecastWeatherModel } from '@app/core/models/weather/forecast-weather.model';
+import { ForecastWeatherResponseApiModel } from '@app/core/models/openweathermap/forecast-weather-response-api.model';
 
 @Injectable({
     providedIn: 'root',
@@ -22,7 +22,7 @@ export class WeatherService {
         );
         if (
             cachedCurrentWeather &&
-            DateHelper.differenceInMinutes(cachedCurrentWeather.weather.datetime, new Date()) >
+            DateHelper.differenceInMinutes(cachedCurrentWeather.cachedDatetime, new Date()) >
                 environment.currentWeatherCacheInMinutes
         ) {
             cachedCurrentWeather = null;
@@ -58,8 +58,9 @@ export class WeatherService {
                                 temperatureMax: response.main.temp_max,
                                 temperature: response.main.temp,
                                 condition: response.weather[0]?.main,
-                                datetime: new Date(response.dt),
+                                datetime: new Date(response.dt * 1000),
                             },
+                            cachedDatetime: new Date(),
                         } as CurrentWeatherModel),
                 ),
                 tap((cw: CurrentWeatherModel) => this.cachedCurrentWeathers.push(cw)),
@@ -89,7 +90,7 @@ export class WeatherService {
                                     temperatureMax: item.temp.max,
                                     temperature: item.temp.day,
                                     condition: item.weather[0]?.main,
-                                    datetime: new Date(item.dt),
+                                    datetime: new Date(item.dt * 1000),
                                 };
                             }),
                         } as ForecastWeatherModel),

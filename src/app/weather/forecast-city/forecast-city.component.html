@@ -4,10 +4,11 @@
     </div>
     <ul class="list-group">
         <li class="list-group-item" *ngFor="let weather of forecastWeather.weathers">
-            Monday, Mar 23: {{ weather.condition }} - Min: {{ weather.temperatureMin }} - Max:
+            {{ weather.datetime | date: 'fullDate' }}: {{ weather.condition }} - Min: {{ weather.temperatureMin }} -
+            Max:
             {{ weather.temperatureMax }}
 
-            <img class="icon" [src]="weather.condition | weatherIconUrl" [alt]="weather.condition | weatherIconUrl" />
+            <img class="icon" [src]="weather.condition | weatherIconUrl" [alt]="weather.condition" />
         </li>
     </ul>
 </div>

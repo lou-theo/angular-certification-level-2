@@ -21,7 +21,7 @@ export class CityService {
     }
 
     public addZipCode(zipCode: string): void {
-        if (this.zipCodes.includes(zipCode)){
+        if (this.zipCodes.includes(zipCode)) {
             return;
         }
         this.zipCodes.push(zipCode);

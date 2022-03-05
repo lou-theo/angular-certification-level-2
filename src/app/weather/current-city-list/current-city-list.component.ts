@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CurrentWeatherModel } from "@app/core/models/weather/current-weather.model";
-import { CityService } from "@app/weather/services/city.service";
-import { WeatherService } from "@app/weather/services/weather.service";
-import { CityModel } from "@app/core/models/weather/city.model";
+import { CurrentWeatherModel } from '@app/core/models/weather/current-weather.model';
+import { CityService } from '@app/weather/services/city.service';
+import { WeatherService } from '@app/weather/services/weather.service';
+import { CityModel } from '@app/core/models/weather/city.model';
 
 @Component({
     selector: 'app-current-city-list',

@@ -1,4 +1,4 @@
-import { DailyForecastApiModel } from "@app/core/models/openweathermap/daily-forecast-api.model";
+import { DailyForecastApiModel } from '@app/core/models/openweathermap/daily-forecast-api.model';
 
 export interface ForecastWeatherResponseApiModel {
     city: {

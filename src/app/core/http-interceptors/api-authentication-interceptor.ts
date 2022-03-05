@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { environment } from "@environment/environment";
+import { environment } from '@environment/environment';
 
 @Injectable()
 export class ApiAuthenticationInterceptor implements HttpInterceptor {

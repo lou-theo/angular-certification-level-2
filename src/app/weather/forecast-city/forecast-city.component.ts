@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable, switchMap } from 'rxjs';
-import { WeatherService } from "@app/weather/services/weather.service";
-import { ForecastWeatherModel } from "@app/core/models/weather/forecast-weather.model";
+import { WeatherService } from '@app/weather/services/weather.service';
+import { ForecastWeatherModel } from '@app/core/models/weather/forecast-weather.model';
 
 @Component({
     selector: 'app-forecast-city',
