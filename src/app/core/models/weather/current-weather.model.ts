@@ -1,5 +1,6 @@
-import { CityModel } from './city.model';
-import { WeatherModel } from './weather.model';
+import { WeatherModel } from "@app/core/models/weather/weather.model";
+import { CityModel } from "@app/core/models/weather/city.model";
+
 
 export interface CurrentWeatherModel {
     city: CityModel;

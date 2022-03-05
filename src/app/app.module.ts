@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { AppComponent } from './app.component';
-import { WeatherModule } from './weather/weather.module';
-import { SharedModule } from './shared/shared.module';
-import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { httpInterceptorProviders } from './core/http-interceptors';
+import { WeatherModule } from "@app/weather/weather.module";
+import { SharedModule } from "@app/shared/shared.module";
+import { AppRoutingModule } from "@app/app-routing.module";
+import { AppComponent } from "@app/app.component";
+import { httpInterceptorProviders } from "@app/core/http-interceptors";
 
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpClientModule, WeatherModule, SharedModule, AppRoutingModule],

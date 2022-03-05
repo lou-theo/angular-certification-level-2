@@ -1,4 +1,4 @@
-import { WeatherApiModel } from './weather-api.model';
+import { WeatherApiModel } from "@app/core/models/openweathermap/weather-api.model";
 
 export interface CurrentWeatherResponseApiModel {
     coord: {

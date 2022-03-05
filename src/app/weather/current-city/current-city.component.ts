@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CityModel } from '../../core/models/weather/city.model';
-import { WeatherModel } from '../../core/models/weather/weather.model';
-import { WeatherConditionHelper } from "../../core/helpers/weather-condition.helper";
+import { CityModel } from "@app/core/models/weather/city.model";
+import { WeatherModel } from "@app/core/models/weather/weather.model";
+import { WeatherConditionHelper } from "@app/core/helpers/weather-condition.helper";
 
 @Component({
     selector: 'app-current-city',

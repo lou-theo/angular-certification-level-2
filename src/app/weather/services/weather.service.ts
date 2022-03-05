@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { CurrentWeatherResponseApiModel } from '../core/models/openweathermap/current-weather-response-api.model';
 import { map, Observable, of, tap } from 'rxjs';
-import { CurrentWeatherModel } from '../core/models/weather/current-weather.model';
-import { environment } from '../../environments/environment';
-import { DateHelper } from '../core/helpers/date.helper';
-import { ForecastWeatherModel } from '../core/models/weather/forecast-weather.model';
-import { ForecastWeatherResponseApiModel } from '../core/models/openweathermap/forecast-weather-response-api.model';
+import { CurrentWeatherModel } from "@app/core/models/weather/current-weather.model";
+import { DateHelper } from "@app/core/helpers/date.helper";
+import { environment } from "@environment/environment";
+import { CurrentWeatherResponseApiModel } from "@app/core/models/openweathermap/current-weather-response-api.model";
+import { ForecastWeatherModel } from "@app/core/models/weather/forecast-weather.model";
+import { ForecastWeatherResponseApiModel } from "@app/core/models/openweathermap/forecast-weather-response-api.model";
 
 @Injectable({
     providedIn: 'root',

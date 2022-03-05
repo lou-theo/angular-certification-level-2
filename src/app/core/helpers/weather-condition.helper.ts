@@ -1,5 +1,5 @@
 import { WeatherConditionEnum } from '../enums/weather-condition.enum';
-import { environment } from '../../../environments/environment';
+import { environment } from "@environment/environment";
 
 export class WeatherConditionHelper {
     public static getIconUrl(condition: WeatherConditionEnum): string {
