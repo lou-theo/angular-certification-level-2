@@ -12,7 +12,7 @@ export class CitySelectionFormComponent implements OnInit {
     public zipCode: FormControl;
 
     public ngOnInit(): void {
-        this.zipCode = new FormControl('', { validators: [Validators.required, Validators.pattern(/[0-9]{5}/)] });
+        this.zipCode = new FormControl('', { validators: [Validators.required, Validators.pattern(/^[0-9]{5}$/)] });
     }
 
     public addLocation(): void {
