@@ -5,7 +5,7 @@ import { ForecastCityComponent } from './forecast-city/forecast-city.component';
 
 const weatherRoutes: Routes = [
     { path: '', component: CurrentCityListComponent, pathMatch: 'full' },
-    { path: 'forecast/:id', component: ForecastCityComponent },
+    { path: 'forecast/:zipCode', component: ForecastCityComponent },
 ];
 
 @NgModule({

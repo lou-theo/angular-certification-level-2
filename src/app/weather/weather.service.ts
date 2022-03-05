@@ -5,6 +5,8 @@ import { map, Observable, of, tap } from 'rxjs';
 import { CurrentWeatherModel } from '../core/models/weather/current-weather.model';
 import { environment } from '../../environments/environment';
 import { DateHelper } from '../core/helpers/date.helper';
+import { ForecastWeatherModel } from '../core/models/weather/forecast-weather.model';
+import { ForecastWeatherResponseApiModel } from '../core/models/openweathermap/forecast-weather-response-api.model';
 
 @Injectable({
     providedIn: 'root',
@@ -61,6 +63,37 @@ export class WeatherService {
                         } as CurrentWeatherModel),
                 ),
                 tap((cw: CurrentWeatherModel) => this.cachedCurrentWeathers.push(cw)),
+            );
+    }
+
+    public getForecastWeather(zipCode: string): Observable<ForecastWeatherModel> {
+        const options = {
+            params: new HttpParams().set('zip', zipCode + ',us').set('cnt', environment.numberOfForecastedDays),
+        };
+        return this.http
+            .get<ForecastWeatherResponseApiModel>(
+                new URL('forecast/daily', environment.openweathermapApi.rootUrl).toString(),
+                options,
+            )
+            .pipe(
+                map(
+                    (response: ForecastWeatherResponseApiModel) =>
+                        ({
+                            city: {
+                                zipCode: zipCode,
+                                name: response.city.name,
+                            },
+                            weathers: response.list.map((item) => {
+                                return {
+                                    temperatureMin: item.temp.min,
+                                    temperatureMax: item.temp.max,
+                                    temperature: item.temp.day,
+                                    condition: item.weather[0]?.main,
+                                    datetime: new Date(item.dt),
+                                };
+                            }),
+                        } as ForecastWeatherModel),
+                ),
             );
     }
 }
