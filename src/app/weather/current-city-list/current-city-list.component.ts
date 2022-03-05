@@ -20,13 +20,16 @@ export class CurrentCityListComponent implements OnInit {
 
     public addCity(zipCode: string): void {
         if (this.currentWeathers.map((cw: CurrentWeatherModel) => cw.city.zipCode).includes(zipCode)) {
-            console.error('city has already been added');
+            console.error('City has already been added');
             return;
         }
 
-        this.weatherService.getCurrentWeather(zipCode).subscribe((weather: CurrentWeatherModel) => {
-            this.currentWeathers.push(weather);
-            this.cityService.addZipCode(zipCode);
+        this.weatherService.getCurrentWeather(zipCode).subscribe({
+            next: (weather: CurrentWeatherModel) => {
+                this.currentWeathers.push(weather);
+                this.cityService.addZipCode(zipCode);
+            },
+            error: (error) => (error.status === 404 ? console.log("The city doesn't exist") : console.error(error)),
         });
     }
 
