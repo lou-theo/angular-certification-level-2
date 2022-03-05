@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CityModel } from "@app/core/models/weather/city.model";
-import { WeatherModel } from "@app/core/models/weather/weather.model";
-import { WeatherConditionHelper } from "@app/core/helpers/weather-condition.helper";
+import { CityModel } from '@app/core/models/weather/city.model';
+import { WeatherModel } from '@app/core/models/weather/weather.model';
 
 @Component({
     selector: 'app-current-city',
@@ -12,10 +11,6 @@ export class CurrentCityComponent {
     @Input() public city: CityModel;
     @Input() public weather: WeatherModel;
     @Output() public closedCity: EventEmitter<CityModel> = new EventEmitter<CityModel>();
-
-    get iconUrl(): string {
-        return WeatherConditionHelper.getIconUrl(this.weather?.condition)
-    }
 
     public close(): void {
         this.closedCity.emit(this.city);

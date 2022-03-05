@@ -1,17 +1,17 @@
-<div class="well flex">
+<div class="well flex" *ngIf="weather && city">
     <div>
-        <h3>{{ city?.name }} ({{ city?.zipCode }})</h3>
-        <h4>Current conditions: {{ weather?.condition }}</h4>
+        <h3>{{ city.name }} ({{ city.zipCode }})</h3>
+        <h4>Current conditions: {{ weather.condition }}</h4>
         <h4>Temperatures today:</h4>
         <p>
-            Current {{ weather?.temperature }} - Max {{ weather?.temperatureMax }} - Min {{ weather?.temperatureMin }}
+            Current {{ weather.temperature }} - Max {{ weather.temperatureMax }} - Min {{ weather.temperatureMin }}
         </p>
         <p>
-            <a [routerLink]="['/forecast', city?.zipCode]">Show 5-day forecast for {{ city?.name }}</a>
+            <a [routerLink]="['/forecast', city.zipCode]">Show 5-day forecast for {{ city.name }}</a>
         </p>
     </div>
     <div (click)="close()">
         <span class="close">×</span>
-        <img [src]="iconUrl" [alt]="iconUrl" />
+        <img [src]="weather.condition | weatherIconUrl" [alt]="weather.condition | weatherIconUrl" />
     </div>
 </div>

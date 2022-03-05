@@ -7,9 +7,9 @@
             Monday, Mar 23: {{ weather.condition }} - Min: {{ weather.temperatureMin }} - Max:
             {{ weather.temperatureMax }}
 
-            <img class="icon" src="https://www.angulartraining.com/images/weather/rain.png" />
+            <img class="icon" [src]="weather.condition | weatherIconUrl" [alt]="weather.condition | weatherIconUrl" />
         </li>
     </ul>
 </div>
 
-<button class="btn btn-success" tabindex="0" id="mainPageBtn">&lt; Back to main page</button>
+<button class="btn btn-success" tabindex="0" id="mainPageBtn" routerLink="/">&lt; Back to main page</button>
