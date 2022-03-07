@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --configuration production",
+    "build": "rimraf .\\docs && ng build --configuration production && move-cli .\\dist\\demo\\ .\\docs",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -51,6 +51,7 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "move-cli": "^2.0.0",
     "prettier": "^2.5.1",
     "protractor": "^7.0.0",
     "ts-node": "~7.0.0",
