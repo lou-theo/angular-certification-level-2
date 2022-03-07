@@ -13,11 +13,11 @@ export class CityService {
     }
 
     private static getZipCodesFromStorage(): string[] {
-        return JSON.parse(sessionStorage.getItem(CityService.LOCAL_STORAGE_ZIP_CODES)) || [];
+        return JSON.parse(localStorage.getItem(CityService.LOCAL_STORAGE_ZIP_CODES)) || [];
     }
 
     private saveZipCodes(): void {
-        sessionStorage.setItem(CityService.LOCAL_STORAGE_ZIP_CODES, JSON.stringify(this.zipCodes));
+        localStorage.setItem(CityService.LOCAL_STORAGE_ZIP_CODES, JSON.stringify(this.zipCodes));
     }
 
     public addZipCode(zipCode: string): void {
